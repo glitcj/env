@@ -1,0 +1,3 @@
+# Seed config for codex-glitcj (CODEX_HOME=~/.codex-glitcj).
+# Copied by `make push-codex-glitcj` only when the target has no config.toml yet,
+# because codex writes its own state (project trust, plugins) into this file.

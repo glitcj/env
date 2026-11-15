@@ -1,4 +1,4 @@
-" glitcj base vimrc. Source of truth lives in the env repo; push with `make push-vimrc`.
+" glitcj base vimrc. Source of truth lives in the env repo; push with `just push-vimrc`.
 set nocompatible
 filetype plugin indent on
 syntax on

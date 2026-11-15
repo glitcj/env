@@ -6,12 +6,12 @@ autoload -Uz compinit
 # End of Docker CLI completions
 
 # --- glitcj env repo ---
-# GLITCJ_ENV_REPO is exported by the header that `make push-zshrc` puts at the
+# GLITCJ_ENV_REPO is exported by the header that `just push-zshrc` puts at the
 # top of ~/.zshrc; it is the absolute path of the env repo on this machine.
 alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude claude'
-alias claude-glitcj='CLAUDE_CONFIG_DIR=~/.claude-glitcj claude'   # pushed by make push-claude-glitcj
+alias claude-glitcj='CLAUDE_CONFIG_DIR=~/.claude-glitcj claude'   # pushed by just push-claude-glitcj
 alias claude-ping='CLAUDE_CONFIG_DIR=~/.claude-ping claude'
-alias codex-glitcj='CODEX_HOME=~/.codex-glitcj codex'             # pushed by make push-codex-glitcj
+alias codex-glitcj='CODEX_HOME=~/.codex-glitcj codex'             # pushed by just push-codex-glitcj
 alias glitcj-config='source "$GLITCJ_ENV_REPO/glitcj-config.sh"'
 alias glitcj-env='cd "$GLITCJ_ENV_REPO"'
 
@@ -22,7 +22,7 @@ get-env() {
   setopt localoptions allexport
   local env_file="$GLITCJ_ENV_REPO/.env"
   if [[ -z $GLITCJ_ENV_REPO ]]; then
-    echo "get-env: GLITCJ_ENV_REPO is not set; run 'make push-zshrc' in the env repo" >&2
+    echo "get-env: GLITCJ_ENV_REPO is not set; run 'just push-zshrc' in the env repo" >&2
     return 1
   fi
   if [[ $1 == --pull ]]; then

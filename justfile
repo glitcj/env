@@ -17,7 +17,7 @@ help:
     @echo "  just push-zshrc          .zshrc  -> ~/.zshrc"
     @echo "  just push-vimrc          .vimrc  -> ~/.vimrc"
     @echo "  just push-claude-glitcj  claude/ -> ~/.claude-glitcj/"
-    @echo "  just push-codex-glitcj   codex/  -> ~/.codex-glitcj/"
+    @echo "  just push-codex-glitcj   codex/ + shared skills -> ~/.codex-glitcj/"
     @echo "  just push-everything     all of the above, after a prompt"
     @echo
     @echo "Flags:  --home DIR   push into DIR instead of ~ (every push recipe)"
@@ -43,11 +43,12 @@ push-claude-glitcj home=env_var('HOME'):
     @echo "push-claude-glitcj"
     @HOME='{{ home }}' {{ push }} dir '{{ repo }}/claude' '{{ home }}/.claude-glitcj'
 
-# codex/ -> ~/.codex-glitcj/ (config.toml is seed-only: codex writes its own state into it)
+# Push Codex settings and the skills shared with Claude. config.toml is seed-only.
 [arg("home", long)]
 push-codex-glitcj home=env_var('HOME'):
     @echo "push-codex-glitcj"
     @HOME='{{ home }}' {{ push }} dir '{{ repo }}/codex' '{{ home }}/.codex-glitcj' config.toml
+    @HOME='{{ home }}' {{ push }} dir '{{ repo }}/claude/skills' '{{ home }}/.codex-glitcj/skills'
 
 # Run every push after a confirmation prompt
 [arg("yes", long, short="y", value="true")]

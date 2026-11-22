@@ -60,7 +60,7 @@ push_dir() {
     else
       push_file "$path" "$dest/$rel"
     fi
-  done < <(find "$src" -type f ! -name .DS_Store -print0 | sort -z)
+  done < <(find "$src" -type f ! -name .DS_Store ! -name "*.pyc" ! -name .gitkeep -print0 | sort -z)
 }
 
 cmd="${1:-}"

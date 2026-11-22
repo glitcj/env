@@ -17,7 +17,7 @@ just push-everything
 | `just push-zshrc` | `.zshrc` | `~/.zshrc` |
 | `just push-vimrc` | `.vimrc` | `~/.vimrc` |
 | `just push-claude-glitcj` | `claude/` | `~/.claude-glitcj/` |
-| `just push-codex-glitcj` | `codex/` | `~/.codex-glitcj/` |
+| `just push-codex-glitcj` | `codex/` and `claude/skills/` | `~/.codex-glitcj/` |
 | `just push-everything` | all of the above | asks first; `--yes` (or `-y`) skips the prompt |
 
 - `just` on its own lists the recipes; `just --usage <recipe>` shows a recipe's flags.
@@ -26,6 +26,14 @@ just push-everything
 - The Claude and Codex pushes merge into the target, so login and history there survive.
 - `codex/config.toml` is only copied when the target has none, since Codex writes its own state into it.
 - The sources are `claude/` and `codex/` rather than `.claude/` and `.codex/` so Claude Code does not also load them as project config for this repo.
+
+## Shared skills
+
+Edit `op` and `high` in `claude/skills/`. The Claude and Codex push recipes install them under `~/.claude-glitcj/skills/` and `~/.codex-glitcj/skills/` respectively.
+
+- In Codex, use `$op` with flags such as `o-short` or `o-high`. In Claude Code, use `/op` with the same flags.
+- Use `$high` in Codex or `/high` in Claude Code for a standalone review notebook in `.artifacts/AGENT/review/`. The `o-high` flag uses `AGENT/review/`.
+- Notebook diagrams use Python 3 and the Graphviz `dot` command (`brew install graphviz`).
 
 ## What the pushed `.zshrc` gives you
 

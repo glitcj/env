@@ -6,9 +6,9 @@ User-level instructions for `claude-glitcj` sessions. Maintained in the env repo
 
 ## Additional Rules Written by the Developer (Note to claude or any agent, never touch this section it will only be maintained by the developer)
 
-- the folder path ./AGENT will contain files u generate and update and i generally will never or almost never touch them.
+- the folder path ./.artifacts/AGENT will contain files u generate and update and i generally will never or almost never touch them.
 
-- the folder path ./DEVELOPER will contain files I write and maintain and u should never touch them, unless I explicitly ask u to do so and let u edit files there.
+- the folder path ./.artifacts/DEVELOPER will contain files I write and maintain and u should never touch them, unless I explicitly ask u to do so and let u edit files there.
 
 
 - if ever you're trying to access AWS but u need me to log in using the command "aws login", you can pause tell me to do it and i will do it, don't improvise around it if u don't have to.
